@@ -21,7 +21,6 @@ class BooksApp extends React.Component {
         });
     };
     onChangeShelf = (event, book) => {
-        console.log(event.target.value, book);
         BooksAPI.update(book, event.target.value).then(result => {
             //Get the new list - we could just modify the State too
             BooksAPI.getAll().then(books => {

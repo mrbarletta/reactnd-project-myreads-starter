@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Book = props => {
-    console.log(props.book);
     let bookImageUrl=""
     if(props.book.imageLinks!==undefined  && props.book.imageLinks.smallThumbnail!==undefined){
         bookImageUrl=props.book.imageLinks.smallThumbnail;
