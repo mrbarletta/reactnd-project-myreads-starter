@@ -3,18 +3,17 @@ import { Link } from "react-router-dom";
 import Book from "./Book";
 
 const ListBooks = props => {
-    let shelfList = [];
+    // let shelfList = [];
     let shelfs = ["currentlyReading", "wantToRead", "read"];
     let shelfsName = ["Currently Reading", "Want to Read", "Read", "None"];
-    if (
+    const shelfList=  (
         props.bookList.currentlyReading !== undefined ||
         props.bookList.wantToRead !== undefined ||
         props.bookList.read !== undefined ||
         props.bookList.none !== undefined
-    ) {
+    ) &&
         shelfs.map((s, i) => {
-            shelfList.push(
-                <div key={i} className="list-books-content">
+            return (<div key={i} className="list-books-content">
                     <div>
                         <div className="bookshelf">
                             <h2 className="bookshelf-title">
@@ -34,10 +33,9 @@ const ListBooks = props => {
                             </div>
                         </div>
                     </div>
-                </div>
-            );
+                </div>)
         });
-    }
+        console.log(shelfList);
     return (
         <div className="list-books">
             <div className="list-books-title">
