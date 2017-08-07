@@ -6,7 +6,12 @@ const ListBooks = props => {
     let shelfList = [];
     let shelfs = ["currentlyReading", "wantToRead", "read"];
     let shelfsName = ["Currently Reading", "Want to Read", "Read", "None"];
-    if (props.bookList.currentlyReading !== undefined) {
+    if (
+        props.bookList.currentlyReading !== undefined ||
+        props.bookList.wantToRead !== undefined ||
+        props.bookList.read !== undefined ||
+        props.bookList.none !== undefined
+    ) {
         shelfs.map((s, i) => {
             shelfList.push(
                 <div key={i} className="list-books-content">
@@ -17,13 +22,14 @@ const ListBooks = props => {
                             </h2>
                             <div className="bookshelf-books">
                                 <ol className="books-grid">
-                                    {props.bookList[s].map((book, index) => {
-                                        return (
-                                            <li key={index}>
-                                                <Book book={book} onChangeShelf={props.onChangeShelf}/>
-                                            </li>
-                                        );
-                                    })}
+                                    {props.bookList[s] !== undefined &&
+                                        props.bookList[s].map((book, index) => {
+                                            return (
+                                                <li key={index}>
+                                                    <Book book={book} onChangeShelf={props.onChangeShelf} />
+                                                </li>
+                                            );
+                                        })}
                                 </ol>
                             </div>
                         </div>
