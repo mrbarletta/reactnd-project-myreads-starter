@@ -35,7 +35,6 @@ const ListBooks = props => {
                     </div>
                 </div>)
         });
-        console.log(shelfList);
     return (
         <div className="list-books">
             <div className="list-books-title">
