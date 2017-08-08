@@ -6,6 +6,10 @@ const SearchBook = props => {
     let bookResults = [];
     if (props.bookResultSet.length > 0) {
         bookResults=props.bookResultSet.map((book, index) => {
+            book.shelf='none';
+            if(props.bookById[book.id]!==undefined){
+                book.shelf=props.bookById[book.id][0].shelf;
+            }
             return (
                 <li key={index}>
                     <Book book={book} onChangeShelf={props.onChangeShelf} />
